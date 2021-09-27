@@ -1,0 +1,71 @@
+body {
+  padding: 40px;
+}
+.toggle {
+  width: 155px;
+  height: 50px;
+  position: relative;
+  display: flex;
+}
+.toggle-cb {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  visibility: hidden;
+}
+.toggle-inner {
+  z-index: 1;
+  position: absolute;
+  border: #D3D3D3 solid 2px;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  border-radius: 40px;
+}
+.toggle-inner::before {
+  font-size: 40px;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-switch {
+  position: absolute;
+  background-color: white;
+  border: #D3D3D3 solid 2px;
+  border-radius: 50%;
+  z-index: 2;
+  height: 70px;
+  width: 70px;
+}
+
+.toggle-cb:checked ~ label .toggle-inner::before {
+  content: "Yes";
+  color: white;
+  justify-content: flex-start;
+  margin-left: 25px;
+}
+.toggle-cb:checked ~ label .toggle-inner {
+  background-color: #e4125f;
+}
+.toggle-cb:not(:checked) ~ label .toggle-inner::before {
+  content: "No";
+  color: #D3D3D3;
+  justify-content: flex-end;
+  width: 80%;
+}
+.toggle-cb:not(:checked) ~ label .toggle-inner {
+  background-color: #F1F1F1;
+}
+
+.toggle-cb:checked ~ label .toggle-switch {
+  right: -20px;
+  top: -10px;
+}
+
+.toggle-cb:not(:checked) ~ label .toggle-switch {
+  left: -20px;
+  top: -10px;
+}

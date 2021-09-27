@@ -1,0 +1,150 @@
+:root {
+  --distance: 80px;
+}
+* {
+  box-sizing: border-box;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+input {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  left: 50px;
+  top: 50px;
+  visibility: hidden;
+}
+
+.menu-open-button {
+  position: absolute;
+  background-color: #cc1c3c;
+  border: #9a2544 solid 2px;
+  border-radius: 50px;
+  width: 70px;
+  height: 70px;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+  z-index: 2;
+}
+
+.menu-line {
+  background-color: white;
+  height: 2px;
+  width: 25px;
+  padding: 2px 2px;
+}
+
+.menu-line-1 {
+  margin-bottom: 4px;
+}
+
+
+.menu-line-3 {
+  margin-top: 4px;
+}
+
+label:hover {
+  transform: scale(1.2, 1.2);
+}
+
+.menu-item {
+  /*position: absolute;*/
+  left: 50px;
+  top: 50px;
+  z-index: -1;
+  background-color: #cc1c3c;
+  border: #9a2544 solid 2px;
+  border-radius: 50px;
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  margin-left: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease-in-out;
+}
+
+.menu-item i {
+  color: white;
+}
+
+.menu .menu-open:checked ~ .menu-item:hover {
+  background-color: white;
+}
+
+.menu .menu-open:checked ~ .menu-item:hover i {
+  color: #cc1c3c;
+}
+
+input:checked + label {
+  transform: scale(0.85);
+  transition: transform 0.3s ease-in-out;
+  margin: 10px;
+  margin-left: 50px;
+  margin-top: 50px;
+  padding-left: 5px;
+}
+
+input:checked + label .menu-line-1 {
+  transform: rotate(40deg);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+input:checked + label .menu-line-2 {
+  visibility: hidden;
+}
+
+input:checked + label .menu-line-3 {
+  transform: rotate(-40deg);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.menu-item {
+  position: absolute;
+}
+
+.menu .menu-open:checked ~ .menu-item {
+  z-index: 1;
+}
+.menu .menu-open:checked ~ .menu-item:nth-of-type(1) {
+transform: translateY(calc(var(--distance)));
+}
+
+.menu .menu-open:checked ~ .menu-item:nth-of-type(2) {
+  transform: translateY(calc(var(--distance) * 2));
+}
+
+.menu .menu-open:checked ~ .menu-item:nth-of-type(3) {
+  transform: translateY(calc(var(--distance) * 3));
+}
+.menu .menu-open:checked ~ .menu-item:nth-of-type(4) {
+  transform: translateY(calc(var(--distance) * 4));
+}
+.menu .menu-open:checked ~ .menu-item:nth-of-type(5) {
+  transform: translateY(calc(var(--distance) * 5));
+}
+.menu .menu-open:not(:checked) ~ label {
+  animation-name: heartbeat;
+  animation-duration: 2s;
+}
+@keyframes heartbeat {
+  0%   {transform: scale(1, 1);}
+  25%  {transform: scale(1.2, 1.2);}
+  50%  {transform: scale(1, 1);}
+  75% {transform: scale(1.2, 1.2);}
+  100% {transform: scale(1, 1);}
+}
